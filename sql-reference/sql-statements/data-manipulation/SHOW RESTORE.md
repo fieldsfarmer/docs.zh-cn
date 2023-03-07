@@ -31,6 +31,7 @@ SHOW RESTORE [FROM <db_name>]
 | State                | 恢复作业当前所在阶段：<ul><li>PENDING：作业初始状态。</li><li>SNAPSHOTING：正在进行本地新建表的快照操作。</li><li>DOWNLOAD：正在发送下载快照任务。</li><li>DOWNLOADING：快照正在下载。</li><li>COMMIT：准备生效已下载的快照。</li><li>COMMITTING：正在生效已下载的快照。</li><li>FINISHED：恢复完成。</li><li>CANCELLED：恢复失败或被取消。</li></ul> |
 | AllowLoad            | 恢复期间是否允许导入。                                       |
 | ReplicationNum       | 恢复指定的副本数。                                           |
+| RestoreObjs ||
 | CreateTime           | 作业创建时间。                                               |
 | MetaPreparedTime     | 本地元数据生成完成时间。                                     |
 | SnapshotFinishedTime | 快照完成时间。                                               |
