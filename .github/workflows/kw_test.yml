@@ -1,0 +1,34 @@
+name: Test create-pull-request
+on:
+  pull_request:
+  # Configuring a workflow to run manually
+  workflow_dispatch:
+
+env:
+  GITHUB_TOKEN: ${{ secrets.CELOBOT_GITHUB_TOKEN }}
+
+permissions:
+  contents: write
+
+jobs:
+  sync-and-rebase-upstream-test:
+    runs-on: [self-hosted, celostar]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: dummy
+        run: |
+          echo "hello" >> dummy.txt
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: Test
+          title: Test
+          body: Test
+          branch:
+          base: kw-rb
+          assignees: fieldsfarmer
+          reviewers: fieldsfarmer
+          draft: true
+          committer: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
